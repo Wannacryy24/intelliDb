@@ -1,4 +1,3 @@
-/* src/pages/Overview.css */
 .overview-container {
   padding: 30px;
   border-radius: 16px;
@@ -49,18 +48,16 @@
   min-width: 300px;
   padding: 20px;
   border-radius: 16px;
-  /* background: linear-gradient(135deg, #a1ffce, #faffd1); */
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, 0.5s ease;
   color: #333;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-/* Sheen / gradient gloss effect */
 .chart-box::before {
   content: '';
   position: absolute;
@@ -75,7 +72,6 @@
   z-index: 0;
 }
 
-/* Hover interaction */
 .chart-box:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
@@ -85,12 +81,10 @@
   opacity: 1;
 }
 
-/* Ensure children are layered above gloss */
 .chart-box * {
   position: relative;
   z-index: 2;
 }
-
 
 .chart-box h3 {
   font-size: 1.2rem;
@@ -110,7 +104,8 @@
   font-style: italic;
 }
 
-.loading, .error-msg {
+.loading,
+.error-msg {
   font-size: 1.2rem;
   color: #ff4d4f;
   text-align: center;
@@ -125,14 +120,13 @@
   background: linear-gradient(135deg, #e0f7fa, #fdfdfed8, #c5cae9b4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.5s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, 0.5s ease;
   color: #333;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-/* Optional: gradient sheen effect */
 .card::before {
   content: '';
   position: absolute;
@@ -147,7 +141,6 @@
   z-index: 0;
 }
 
-/* Hover effects */
 .card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
@@ -157,7 +150,6 @@
   opacity: 1;
 }
 
-/* Ensure card content stays on top */
 .card * {
   position: relative;
   z-index: 2;

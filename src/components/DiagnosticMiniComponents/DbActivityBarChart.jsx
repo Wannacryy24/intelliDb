@@ -1,17 +1,7 @@
 import React from 'react';
-import {
-    ResponsiveContainer,
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip as RechartsTooltip,
-    LabelList,
-    Cell,
-} from 'recharts';
-import './DbActivityBarChart.css'; // ← Add this
-import { Typography, Paper, Box } from '@mui/material'; // Optional: Remove if fully using CSS
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, LabelList, Cell } from 'recharts';
+import './DbActivityBarChart.css';
+import { Typography, Paper, Box } from '@mui/material';
 
 const COLORS = [
     '#42a5f5', '#66bb6a', '#ffa726', '#ef5350',

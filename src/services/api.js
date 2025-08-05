@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://44.202.108.149:8000';
+// const BASE_URL = 'http://44.202.108.149:8000';
+const BASE_URL = '/api';
 
 // Connection
 export const connectToDb = (credentials) =>

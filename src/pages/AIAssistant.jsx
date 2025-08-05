@@ -1,27 +1,32 @@
-// src/screens/AIAssistant.jsx
 import React, { useState } from 'react';
 import './AIAssistant.css';
 import { askAI } from '../services/api';
 
 const AIAssistant = () => {
   const [prompt, setPrompt] = useState('');
-  const [response, setResponse] = useState('');
+  const [responses, setResponses] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!prompt.trim()) return;
+
     setLoading(true);
     setError('');
-    setResponse('');
 
     const conId = localStorage.getItem('connection_id');
     console.log('🧠 Using connection_id:', conId);
 
     try {
       const res = await askAI(prompt, conId);
-      console.log('✅ AI Response:', res.data.response);
-      setResponse(res.data.response);
+      const newEntry = {
+        question: prompt,
+        answer: res.data.response,
+      };    
+
+      setResponses((prev) => [...prev, newEntry]);
+      setPrompt('');
     } catch (err) {
       console.error('❌ AI request failed:', err);
       setError('Failed to fetch AI response.');
@@ -34,12 +39,15 @@ const AIAssistant = () => {
     <div className="ai-container">
       <div className="ai-output">
         {error && <p className="error-msg">{error}</p>}
-        {response && (
-          <div className="ai-response">
-            <h4>📝 Response</h4>
-            <pre>{response}</pre>
+
+        {responses.map((entry, index) => (
+          <div key={index} className="ai-response">
+            <h4>❓ You:</h4>
+            <pre>{entry.question}</pre>
+            <h4>🧠 AI:</h4>
+            <pre>{entry.answer}</pre>
           </div>
-        )}
+        ))}
       </div>
 
       <form className="ai-form" onSubmit={handleSubmit}>

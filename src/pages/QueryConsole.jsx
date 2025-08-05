@@ -19,7 +19,7 @@ const QueryConsole = () => {
             const res = await executeQuery({
                 query,
                 connection_id: connectionId,
-                is_write: false // Always false for SELECT queries
+                is_write: false
             });
 
 

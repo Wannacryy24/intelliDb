@@ -1,9 +1,10 @@
 .realtime-container {
   padding: 24px;
- 
+
 }
 
-.loading, .error-msg {
+.loading,
+.error-msg {
   padding: 16px;
   font-size: 16px;
   color: #444;
@@ -24,7 +25,7 @@
 }
 
 .chart-wrapper {
-    background: linear-gradient(135deg, #e0f7fa, #fdfdfed8, #c5cae9b4);
+  background: linear-gradient(135deg, #e0f7fa, #fdfdfed8, #c5cae9b4);
   border-radius: 16px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);

@@ -1,5 +1,5 @@
 import React from 'react';
-import './QueryPerformanceTable.css'; // ✅ Import the CSS file
+import './QueryPerformanceTable.css';
 
 const QueryPerformanceTable = ({ query_performance }) => {
   const queryPerfTable = query_performance.queries.map((query, idx) => ({

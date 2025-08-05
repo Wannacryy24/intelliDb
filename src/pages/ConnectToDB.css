@@ -62,7 +62,8 @@
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.success-msg, .error-msg {
+.success-msg,
+.error-msg {
   margin-top: 20px;
   font-weight: bold;
   font-size: 14px;

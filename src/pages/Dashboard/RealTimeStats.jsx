@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './RealTimeStats.css';
 import { getDashboardData } from '../../services/api';
-import {
-  LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer,
-  AreaChart, Area, Legend
-} from 'recharts';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer, AreaChart, Area, Legend } from 'recharts';
 
 const RealTimeStats = () => {
   const [data, setData] = useState(null);
@@ -25,7 +22,7 @@ const RealTimeStats = () => {
 
   useEffect(() => {
     fetchData();
-    const interval = setInterval(fetchData, 10000); // Refresh every 10s
+    const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, []);
 

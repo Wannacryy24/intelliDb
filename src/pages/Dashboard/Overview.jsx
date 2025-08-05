@@ -1,4 +1,3 @@
-// src/pages/Overview.jsx
 import React, { useEffect, useState } from 'react';
 import './Overview.css';
 import { getDashboardData } from '../../services/api';
@@ -6,7 +5,7 @@ import { getDashboardData } from '../../services/api';
 import {
   PieChart, Pie, Cell, Tooltip,
   BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  LineChart, Line, ResponsiveContainer,
+  LineChart, Line, Legend, ResponsiveContainer,
 } from 'recharts';
 
 import MemoryIcon from '@mui/icons-material/Memory';
@@ -24,6 +23,7 @@ const Overview = () => {
     getDashboardData()
       .then(res => {
         setData(res.data.data);
+        console.log(res.data.data)
         setLoading(false);
       })
       .catch(() => {
@@ -37,11 +37,30 @@ const Overview = () => {
 
   const { metrics, graphs, last_updated } = data;
 
-  const connectionPie = [
-    { name: 'Active', value: graphs.connections_timeline.active_connections[0] },
-    { name: 'Idle', value: graphs.connections_timeline.idle_connections[0] },
-    { name: 'Waiting', value: graphs.connections_timeline.waiting_connections[0] },
+
+
+  const connectionPieRaw = [
+    {
+      name: 'Active',
+      value: graphs.connections_timeline.active_connections?.[0] ?? 0,
+    },
+    {
+      name: 'Idle',
+      value: graphs.connections_timeline.idle_connections?.[0] ?? 0,
+    },
+    {
+      name: 'Waiting',
+      value: graphs.connections_timeline.waiting_connections?.[0] ?? 0,
+    },
   ];
+
+  // Check if all values are zero
+  const isAllZero = connectionPieRaw.every((entry) => entry.value === 0);
+
+  // Add a dummy slice if empty
+  const connectionPie = isAllZero
+    ? [{ name: 'No Data', value: 1, isDummy: true }]
+    : connectionPieRaw;
 
   const queryBarData = graphs.query_performance.queries.map((q, i) => ({
     name: `Q${i + 1}`,
@@ -79,13 +98,26 @@ const Overview = () => {
         <div className="chart-box">
           <h3>🔁 Connection Status</h3>
           <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-              <Pie data={connectionPie} dataKey="value" nameKey="name" outerRadius={80}>
-                {connectionPie.map((_, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+            <PieChart width={400} height={300}>
+              <Pie
+                data={connectionPie}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                fill="#8884d8"
+                label
+              >
+                {connectionPie.map((entry, index) => (
+                  <Cell
+                    key={`cell-${index}`}
+                    fill={entry.isDummy ? '#ccc' : COLORS[index % COLORS.length]}
+                  />
                 ))}
               </Pie>
               <Tooltip />
+              <Legend />
             </PieChart>
           </ResponsiveContainer>
         </div>

@@ -1,14 +1,6 @@
 import React from 'react';
-import './IndexUsageBarChart.css'; // ⬅️ Add this line
-import {
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend
-} from 'recharts';
+import './IndexUsageBarChart.css';
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 
 const IndexUsageBarChart = ({ index_usage }) => {
   const indexBarData = index_usage.index_names.map((name, idx) => ({

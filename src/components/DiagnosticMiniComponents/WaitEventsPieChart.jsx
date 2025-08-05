@@ -1,5 +1,5 @@
 import React from 'react';
-import './WaitEventsPieChart.css'; // ✅ Import CSS
+import './WaitEventsPieChart.css';
 import {
   PieChart,
   Pie,

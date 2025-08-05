@@ -1,0 +1,62 @@
+/* QueryPerformanceTable.css */
+
+.query-performance-container {
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-top: 100px;
+  width: 100%;
+  overflow-x: auto;
+  background: linear-gradient(135deg, #e0f7fa, #fdfdfed8, #c5cae9b4);
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.query-performance-container:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.query-performance-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.query-performance-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.query-performance-table th,
+.query-performance-table td {
+  padding: 12px 8px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  /* background: linear-gradient(135deg, #e0f7fa69, #fdfdfe2d, #c5cae92a); */
+  transition: background-color 0.3s ease;
+}
+
+.query-performance-table th {
+  background-color: #e0f7fa47;
+  font-weight: 600;
+  text-align: left;
+  color: #333;
+}
+
+.query-performance-table td:first-child {
+  text-align: left;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.query-performance-table tbody tr:hover {
+  background-color: #e3f2fd;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}

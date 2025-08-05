@@ -1,0 +1,73 @@
+/* src/screens/AIAssistant.css */
+
+.ai-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  background: #f9f9f9;
+  overflow: hidden;
+}
+
+.ai-output {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.ai-response {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  max-height: 100%;
+  overflow-y: auto;
+  height: 80vh;
+}
+
+.ai-response pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-top: 10px;
+}
+
+.ai-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-form textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.ai-form button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #2e73f0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 20vw;
+  margin: auto;
+}
+
+.ai-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: red;
+  margin-bottom: 10px;
+}

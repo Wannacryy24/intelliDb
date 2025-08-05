@@ -1,0 +1,26 @@
+/* IndexUsageBarChart.css */
+
+.index-usage-wrapper {
+  height: 80%;
+  min-width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.index-usage-container {
+  padding: 16px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+ background: linear-gradient(135deg, #e0f7fa, #fdfdfed8, #c5cae9b4);
+
+}
+
+.index-usage-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+}

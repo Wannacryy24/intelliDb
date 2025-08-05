@@ -1,13 +1,17 @@
-.app {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+/* Reset & Base */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
-.main {
-  display: flex;
-  flex: 1;
+
+body {
+  margin: 0px !important;  
+  background-color: #f4f5f9;
+  color: #1f1f1f;
 }
-.content {
-  flex: 1;
-  padding: 20px;
-}
+.app-container::-webkit-scrollbar {
+  display: none;
+} 

@@ -5,7 +5,8 @@ const BASE_URL = '/api';
 
 // Connection
 export const connectToDb = (credentials) =>
-  axios.post(`${BASE_URL}/api/connect`, credentials);
+  // axios.post(`${BASE_URL}/api/connect`, credentials);
+axios.post(`${BASE_URL}/connect`, credentials); 
 
 export const disconnectDb = () =>
   axios.post(`${BASE_URL}/api/v3/compression/disconnect`);

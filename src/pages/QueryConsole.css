@@ -116,6 +116,7 @@
 @media (max-width: 768px) {
   .query-console-container {
     padding: 15px;
+    width: 90%;
   }
 
   .query-console-container h2 {
@@ -155,3 +156,4 @@
     padding: 6px;
   }
 }
+

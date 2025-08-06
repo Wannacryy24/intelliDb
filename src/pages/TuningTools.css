@@ -116,6 +116,7 @@
 @media (max-width: 768px) {
   .tool-list {
     grid-template-columns: 1fr;
+    margin-left: 5%;
   }
 
   .tool-heading {

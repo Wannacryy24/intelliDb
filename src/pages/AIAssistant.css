@@ -124,9 +124,21 @@
   .ai-form textarea {
     min-height: 80px;
     font-size: 0.9rem;
+    width: 80%;
+    margin-left: 20px;
   }
 
   .ai-response pre {
     font-size: 0.9rem;
   }
+  .ai-form button{
+    width: 40%;
+  }
+  .ai-output {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 0px;
+  width: 80%;
+  margin-left: 10%;
+}
 }

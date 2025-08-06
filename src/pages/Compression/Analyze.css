@@ -43,3 +43,26 @@
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+@media (max-width: 768px) {
+ .analyze-container  {
+    width: 80%;
+    margin-left: 8%;
+  }
+.analyze-container   h1 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+  
+.analyze-content p {
+    font-size: 0.8rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.analyze-content h2 {
+    font-size: 1rem;
+    color: #0d47a1;
+    animation: pulse 2s infinite;
+}
+}

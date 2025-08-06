@@ -18,3 +18,11 @@
   background-color: red;
   
 } 
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container-inner-div {
+    left: 79px;
+  }
+  
+}

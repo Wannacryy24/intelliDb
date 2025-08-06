@@ -4,8 +4,11 @@ import './CompressNow.css';
 const CompressNow = () => {
     return (
         <div className="compress-container">
-            <div className="compress-spinner"></div>
-            <p className="compress-text">Compressing... Please wait</p>
+            <div className="compress-content">
+                <h1>📦 Compress Now</h1>
+                <p>This compression feature is being packed for launch!</p>
+                <h2>⏳ Coming Soon ⏳</h2>
+            </div>
         </div>
     );
 };

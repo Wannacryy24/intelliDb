@@ -23,7 +23,7 @@ const AIAssistant = () => {
       const newEntry = {
         question: prompt,
         answer: res.data.response,
-      };    
+      };
 
       setResponses((prev) => [...prev, newEntry]);
       setPrompt('');
@@ -37,6 +37,8 @@ const AIAssistant = () => {
 
   return (
     <div className="ai-container">
+      <h2 className="ai-heading">🧠 AI Assistant</h2>
+
       <div className="ai-output">
         {error && <p className="error-msg">{error}</p>}
 

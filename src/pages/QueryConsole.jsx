@@ -13,6 +13,7 @@ const QueryConsole = () => {
         setLoading(true);
         setError('');
         setResult(null);
+        setQuery('')
 
         try {
             const connectionId = localStorage.getItem('connection_id');
@@ -22,9 +23,7 @@ const QueryConsole = () => {
                 is_write: false
             });
 
-
             setResult(res.data);
-            console.log(res.data.data[0].user)
         } catch (err) {
             setError('Failed to execute query.');
         } finally {
@@ -35,6 +34,40 @@ const QueryConsole = () => {
     return (
         <div className="query-console-container">
             <h2>🧾 Query Console</h2>
+
+            <div className="query-result-area">
+                {error && <p className="error-msg">{error}</p>}
+                {result?.data && <h1>{result.data.status}</h1>}
+                {result && <h3>{result.data[0]?.user}</h3>}
+
+                {result ? (
+                    result.data?.data?.length > 0 ? (
+                        <div className="result-table-container">
+                            <table className="result-table">
+                                <thead>
+                                    <tr>
+                                        {result.data.columns.map((col, index) => (
+                                            <th key={index}>{col}</th>
+                                        ))}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {result.data.data.map((row, idx) => (
+                                        <tr key={idx}>
+                                            {result.data.columns.map((col, i) => (
+                                                <td key={i}>{row[col]}</td>
+                                            ))}
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    ) : (
+                        <p>No results returned.</p>
+                    )
+                ) : null}
+            </div>
+
             <form className="query-form" onSubmit={handleSubmit}>
                 <textarea
                     value={query}
@@ -50,36 +83,6 @@ const QueryConsole = () => {
                     {loading ? 'Running...' : 'Execute'}
                 </button>
             </form>
-
-            {error && <p className="error-msg">{error}</p>}
-            {result?.data && <h1>{result.data.status}</h1>}
-            {result && <h3>{result.data[0].user}</h3>}
-            {result ? (
-                result.data?.data?.length > 0 ? (
-                    <div className="result-table-container">
-                        <table className="result-table">
-                            <thead>
-                                <tr>
-                                    {result.data.columns.map((col, index) => (
-                                        <th key={index}>{col}</th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {result.data.data.map((row, idx) => (
-                                    <tr key={idx}>
-                                        {result.data.columns.map((col, i) => (
-                                            <td key={i}>{row[col]}</td>
-                                        ))}
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                ) : (
-                    <p>No results returned.</p>
-                )
-            ) : null}
         </div>
     );
 };

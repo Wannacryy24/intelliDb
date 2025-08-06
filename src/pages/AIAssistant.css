@@ -4,48 +4,74 @@
   height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  justify-content: flex-end;
-  background: #f9f9f9;
   overflow: hidden;
+}
+
+.ai-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .ai-output {
   flex: 1;
   overflow-y: auto;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+.ai-output::-webkit-scrollbar{
+  display: none;
 }
 
 .ai-response {
-  background: #fff;
+  background: white;
   border: 1px solid #ccc;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  max-height: 100%;
-  overflow-y: auto;
-  min-height: 40vh;
+  margin-bottom: 15px;
+}
+
+.ai-response h4 {
+  margin: 8px 0 4px;
+  color: #222;
 }
 
 .ai-response pre {
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin-top: 10px;
+  margin-top: 5px;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.error-msg {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .ai-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: auto;
 }
 
 .ai-form textarea {
   width: 100%;
-  min-height: 80px;
+  min-height: 100px;
   resize: vertical;
-  padding: 10px;
+  padding: 12px;
   font-size: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
+  font-family: monospace;
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
 }
 
 .ai-form button {
@@ -56,8 +82,13 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  width: 20vw;
+  width: fit-content;
   margin: auto;
+  transition: background-color 0.2s ease;
+}
+
+.ai-form button:hover:not(:disabled) {
+  background-color: #1b59c9;
 }
 
 .ai-form button:disabled {
@@ -65,7 +96,37 @@
   cursor: not-allowed;
 }
 
-.error-msg {
-  color: red;
-  margin-bottom: 10px;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .ai-container {
+    padding: 15px;
+  }
+
+  .ai-heading {
+    font-size: 1.6rem;
+  }
+
+  .ai-form button {
+    width: 100%;
+  }
+
+  .ai-form textarea {
+    min-height: 90px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-heading {
+    font-size: 1.4rem;
+  }
+
+  .ai-form textarea {
+    min-height: 80px;
+    font-size: 0.9rem;
+  }
+
+  .ai-response pre {
+    font-size: 0.9rem;
+  }
 }

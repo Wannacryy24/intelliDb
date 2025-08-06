@@ -4,8 +4,11 @@ import './Analyze.css';
 const Analyze = () => {
     return (
         <div className="analyze-container">
-            <div className="analyze-spinner"></div>
-            <p className="analyze-text">Analyzing data... Working in progress</p>
+            <div className="analyze-content">
+                <h1>🧠 Analyze Module</h1>
+                <p>We're analyzing how to make this even better.</p>
+                <h2>🔬 Coming Soon 🔬</h2>
+            </div>
         </div>
     );
 };

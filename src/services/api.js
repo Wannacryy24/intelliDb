@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-// const BASE_URL = 'http://44.202.108.149:8000';
-const BASE_URL = '/api';
+const BASE_URL = 'http://44.202.108.149:8000'; 
+// const BASE_URL = '/api';
 
 // Connection
 export const connectToDb = (credentials) =>
-  // axios.post(`${BASE_URL}/api/connect`, credentials);
-axios.post(`${BASE_URL}/connect`, credentials); 
+  axios.post(`${BASE_URL}/api/connect`, credentials);
+// axios.post(`${BASE_URL}/connect`, credentials); 
 
 export const disconnectDb = () =>
   axios.post(`${BASE_URL}/api/v3/compression/disconnect`);
@@ -21,7 +21,7 @@ export const executeQuery = (data) =>
 
 // AI Assistant
 export const askAiAssistant = (data) =>
-  axios.post(`${BASE_URL}/api/ask`, data); 
+  axios.post(`${BASE_URL}/api/ask`, data);  
 //
 export const askAI = (question, connectionId) =>
   axios.post(`${BASE_URL}/api/ask`, {
@@ -44,7 +44,7 @@ export const runCompressionNow = () =>
 
 // Diagnostics
 export const Tools = () =>
-  axios.get(`${BASE_URL}/api/diagnostics/tools`);
+  axios.get(`${BASE_URL}/api/diagnostics/tools`); 
 //
 export const getDiagnosticTools = () =>
   axios.get(`${BASE_URL}/diagnostics/tool-list`);

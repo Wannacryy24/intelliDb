@@ -7,7 +7,7 @@
   const isLocal = import.meta.env.DEV;
   const BASE_URL = isLocal
     ? import.meta.env.VITE_BASE_URL // e.g. http://localhost:8000 or real IP
-    : '/api'; // Netlify handles proxy
+    : ''; // Netlify handles proxy
 
 
   // Connection
@@ -16,6 +16,7 @@
   // axios.post(`${BASE_URL}/connect`, credentials); 
 
   export const disconnectDb = () =>
+
     axios.post(`${BASE_URL}/api/v3/compression/disconnect`);
 
   // Dashboard

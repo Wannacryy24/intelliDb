@@ -18,7 +18,7 @@ export const getDashboardData = () =>
 
 // Query Console
 export const executeQuery = (data) =>
-  axios.post(`${BASE_URL}/api/execute-query`, data);
+  axios.post(`${BASE_URL}/execute-query`, data);
 
 // AI Assistant
 export const askAiAssistant = (data) =>

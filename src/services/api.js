@@ -2,7 +2,13 @@ import axios from 'axios';
 
 // const BASE_URL = 'http://44.202.108.149:8000'; 
 // const BASE_URL = '/api';
-const BASE_URL = import.meta.env.VITE_BASE_URL; 
+// const BASE_URL = import.meta.env.VITE_BASE_URL; 
+
+const isLocal = import.meta.env.DEV;
+const BASE_URL = isLocal
+  ? import.meta.env.VITE_BASE_URL // e.g. http://localhost:8000 or real IP
+  : '/api'; // Netlify handles proxy
+
 
 // Connection
 export const connectToDb = (credentials) =>

@@ -1,75 +1,66 @@
-  import axios from 'axios';
+import axios from 'axios';
 
-  // const BASE_URL = 'http://44.202.108.149:8000'; 
-  // const BASE_URL = '/api';
-  // const BASE_URL = import.meta.env.VITE_BASE_URL; 
+const isLocal = import.meta.env.DEV;
+const BASE_URL = isLocal
+  ? import.meta.env.VITE_BASE_URL // e.g. http://localhost:8000
+  : '/api'; // Netlify proxy
 
-  const isLocal = import.meta.env.DEV;
-  const BASE_URL = isLocal
-    ? import.meta.env.VITE_BASE_URL // e.g. http://localhost:8000 or real IP
-    : ''; // Netlify handles proxy
+// Connection
+export const connectToDb = (credentials) =>
+  axios.post(`${BASE_URL}/connect`, credentials);
 
+export const disconnectDb = () =>
+  axios.post(`${BASE_URL}/v3/compression/disconnect`);
 
-  // Connection
-  export const connectToDb = (credentials) =>
-    axios.post(`${BASE_URL}/api/connect`, credentials);
-  // axios.post(`${BASE_URL}/connect`, credentials); 
+// Dashboard
+export const getDashboardData = () =>
+  axios.get(`${BASE_URL}/monitor/dashboard`);
 
-  export const disconnectDb = () =>
+// Query Console
+export const executeQuery = (data) =>
+  axios.post(`${BASE_URL}/execute-query`, data);
 
-    axios.post(`${BASE_URL}/api/v3/compression/disconnect`);
+// AI Assistant
+export const askAiAssistant = (data) =>
+  axios.post(`${BASE_URL}/ask`, data);
 
-  // Dashboard
-  export const getDashboardData = () =>
-    axios.get(`${BASE_URL}/monitor/dashboard`);
+export const askAI = (question, connectionId) =>
+  axios.post(`${BASE_URL}/ask`, {
+    question,
+    connection_id: connectionId,
+  });
 
-  // Query Console
-  export const executeQuery = (data) =>
-    axios.post(`${BASE_URL}/api/execute-query`, data);
+// Compression
+export const getCompressionStats = () =>
+  axios.get(`${BASE_URL}/v3/compression/stats`);
 
-  // AI Assistant
-  export const askAiAssistant = (data) =>
-    axios.post(`${BASE_URL}/api/ask`, data);  
-  //
-  export const askAI = (question, connectionId) =>
-    axios.post(`${BASE_URL}/api/ask`, {
-      question,
-      connection_id: connectionId,
-    });
+export const getCompressionHistory = () =>
+  axios.get(`${BASE_URL}/v3/compression/history`);
 
-  // Compression
-  export const getCompressionStats = () =>
-    axios.get(`${BASE_URL}/api/v3/compression/stats`);
+export const analyzeCompression = () =>
+  axios.get(`${BASE_URL}/v3/compression/analyze`);
 
-  export const getCompressionHistory = () =>
-    axios.get(`${BASE_URL}/api/v3/compression/history`);
+export const runCompressionNow = () =>
+  axios.post(`${BASE_URL}/v3/compression/run`);
 
-  export const analyzeCompression = () =>
-    axios.get(`${BASE_URL}/api/v3/compression/analyze`);
+// Diagnostics
+export const Tools = () =>
+  axios.get(`${BASE_URL}/diagnostics/tools`);
 
-  export const runCompressionNow = () =>
-    axios.post(`${BASE_URL}/api/v3/compression/run`);
+export const getDiagnosticTools = () =>
+  axios.get(`${BASE_URL}/diagnostics/tool-list`);
 
-  // Diagnostics
-  export const Tools = () =>
-    axios.get(`${BASE_URL}/api/diagnostics/tools`); 
-  //
-  export const getDiagnosticTools = () =>
-    axios.get(`${BASE_URL}/diagnostics/tool-list`);
+export const runDiagnosticTool = (data) =>
+  axios.post(`${BASE_URL}/diagnostics/run`, data);
 
+// Tuning Tools
+export const getTuningSuggestions = () =>
+  axios.get(`${BASE_URL}/tuning/suggestions`);
 
-  export const runDiagnosticTool = (data) =>
-    axios.post(`${BASE_URL}/api/diagnostics/run`, data);
+export const getTuningTools = () =>
+  axios.get(`${BASE_URL}/monitor/tuning-tools`);
 
-  // Tuning Tools
-  export const getTuningSuggestions = () =>
-    axios.get(`${BASE_URL}/api/tuning/suggestions`);
-
-  // 6. Get available tuning tools
-  export const getTuningTools = () =>
-    axios.get(`${BASE_URL}/monitor/tuning-tools`);
-
-  // 7. Run selected tuning tool
-  export const runTuningTool = (toolId) =>
-    axios.post(`${BASE_URL}/monitor/tuning`, {
-      tool_id: toolId,});
+export const runTuningTool = (toolId) =>
+  axios.post(`${BASE_URL}/monitor/tuning`, {
+    tool_id: toolId,
+  });

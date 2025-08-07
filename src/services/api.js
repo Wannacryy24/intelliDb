@@ -7,7 +7,7 @@ const BASE_URL = isLocal
 
 // Connection
 export const connectToDb = (credentials) =>
-  axios.post(`${BASE_URL}/connect`, credentials);
+  axios.post(`${BASE_URL}/api/connect`, credentials);
 
 export const disconnectDb = () =>
   axios.post(`${BASE_URL}/v3/compression/disconnect`);
@@ -18,14 +18,14 @@ export const getDashboardData = () =>
 
 // Query Console
 export const executeQuery = (data) =>
-  axios.post(`${BASE_URL}/execute-query`, data);
+  axios.post(`${BASE_URL}/api/execute-query`, data);
 
 // AI Assistant
 export const askAiAssistant = (data) =>
   axios.post(`${BASE_URL}/ask`, data);
 
 export const askAI = (question, connectionId) =>
-  axios.post(`${BASE_URL}/ask`, {
+  axios.post(`${BASE_URL}/api/ask`, {
     question,
     connection_id: connectionId,
   });

@@ -12,7 +12,7 @@
 
   // Connection
   export const connectToDb = (credentials) =>
-    axios.post(`${BASE_URL}/connect`, credentials);
+    axios.post(`${BASE_URL}/api/connect`, credentials);
   // axios.post(`${BASE_URL}/connect`, credentials); 
 
   export const disconnectDb = () =>
